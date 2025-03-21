@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import jakarta.json.JsonObject;
+
 
 @Repository
 public class OrdersRepository {
@@ -36,6 +38,19 @@ public class OrdersRepository {
   // TODO: Task 4
   // Write the native MongoDB query for your access methods in the comment below
   //
+  /*
+   * db.menus.insert({
+   *  _id: abcd1234
+      order_id: “abcd1234”,
+      username: "fred",
+      total: "23.10",
+      items: [ { ... }, { ... }, { ... } ]
+      })
+   */
   //  Native MongoDB query here
-  
+  public boolean saveOrderMongo(JsonObject j){
+      Document doc = Document.parse(j.toString());
+      Document newDoc = mongoTemplate.insert(doc, C_MENUS);
+      return (!newDoc.isEmpty());
+  }
 }

@@ -6,6 +6,7 @@ import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.json.JsonObject;
 import vttp.batch5.csf.assessment.server.models.Customer;
 import vttp.batch5.csf.assessment.server.models.Order;
 import vttp.batch5.csf.assessment.server.repositories.OrdersRepository;
@@ -30,5 +31,9 @@ public class RestaurantService {
 
   public void saveOrder(Order o){
     restRepo.saveOrder(o);
+  }
+
+  public boolean saveOrderMongo(JsonObject j){
+    return restRepo.saveOrderMongo(j);
   }
 }

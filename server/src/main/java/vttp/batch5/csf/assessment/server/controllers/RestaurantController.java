@@ -114,8 +114,17 @@ public class RestaurantController {
       order.setOrder_date(new Date(jObj2.getInt("timestamp")));
       order.setTotal(totalPrice);
       order.setUsername(cust.getUsername());
-      restSvc.saveOrder(order);
-      
+      restSvc.saveOrder(order); // save to SQL
+
+      JsonObject orderJOB = Json.createObjectBuilder()
+        .add("_id", order.getOrder_id())
+        .add("order_id", order.getOrder_id())
+        .add("username", order.getUsername())
+        .add("total", order.getTotal())
+        .add("items", items)
+        .build();
+      boolean result = restSvc.saveOrderMongo(orderJOB);
+
       return ResponseEntity.ok().body("");
     }else{
       JsonObject failObj = Json.createObjectBuilder()
