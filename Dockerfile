@@ -46,5 +46,5 @@ ENV SPRING_DATASOURCE_PASSWORD=
 
 EXPOSE ${PORT}
 
-SHELL [ "/bin/sh", "-c" ]
+SHELL [ "/bin/sh", "-c"]
 ENTRYPOINT SERVER_PORT=${PORT} java -jar app.jar

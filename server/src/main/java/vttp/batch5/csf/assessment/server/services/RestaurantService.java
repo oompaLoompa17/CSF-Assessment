@@ -34,6 +34,6 @@ public class RestaurantService {
   }
 
   public boolean saveOrderMongo(JsonObject j){
-    return restRepo.saveOrderMongo(j);
+    return orderRepo.saveOrderMongo(j);
   }
 }
