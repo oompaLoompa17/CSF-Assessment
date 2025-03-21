@@ -1,0 +1,7 @@
+# TODO: Task 1.1
+
+# On Railway's mongo
+mongoimport --uri=mongodb://mongo:EqkmQvyzEBNhInEUtquetRIkkfxfRvHU@nozomi.proxy.rlwy.net:18751/restaurant?authSource=admin -d restaurant -c menus --type=json --jsonArray --file=menus.json
+
+# Locally
+mongoimport -d restaurant -c menus --type=json --jsonArray --file=menus.json
